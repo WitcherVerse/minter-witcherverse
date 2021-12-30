@@ -20,7 +20,7 @@ if (window.ethereum) {
 
 
 const contractABI = require('../contract-abi.json')
-const contractAddress = "0x1661A42c6FFFe067783cf7513e2E02F9Aebf5cEA";
+const contractAddress = "0xdd2089833cbf218114add359995954c6622d5a7c";
 
 export const connectWallet = async () => {
   if (window.ethereum) {
@@ -163,8 +163,8 @@ export const claimNFT = async(_mintAmount) => {
   const transactionParameters = {
     to: contractAddress, // Required except during contract publications.
     from: window.ethereum.selectedAddress, // must match user's active address.
-    //'data': window.contract.methods.mintNFT(window.ethereum.selectedAddress, tokenURI).encodeABI() //make call to NFT smart contract 
-    'data': window.contract.methods.mint(window.ethereum.selectedAddress, _mintAmount).encodeABI() //make call to NFT smart contract 
+    //'data': window.contract.methods.mint(window.ethereum.selectedAddress, _mintAmount).encodeABI() //make call to NFT smart contract 
+    'data': window.contract.methods.mint(_mintAmount).encodeABI() //make call to NFT smart contract 
   };
 
   //sign transaction via Metamask
